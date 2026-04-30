@@ -3,1062 +3,856 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Forja — Aprende aquilo que precisas. Para o teu trabalho.</title>
-<meta name="description" content="A Forja cria um plano de aprendizagem feito para ti, com acompanhamento e prática até ao fim." />
+<title>Forja — Aprende com IA o que precisas para trabalhar</title>
+<meta name="description" content="A Forja gera planos de aprendizagem profissional adaptados ao teu objectivo, em segundos. Aprende automação, IA aplicada e ferramentas de trabalho — à tua medida." />
 
-<!-- Open Graph / LinkedIn / WhatsApp -->
+<!-- Open Graph -->
 <meta property="og:title" content="Forja — Aprende com IA o que precisas para trabalhar" />
-<meta property="og:description" content="Plataforma de aprendizagem profissional com IA. Gera cursos personalizados em automação e IA aplicada — em segundos." />
+<meta property="og:description" content="A Forja gera planos de aprendizagem profissional adaptados ao teu objectivo, em segundos." />
 <meta property="og:image" content="https://forjaai.app/og.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:url" content="https://forjaai.app/" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="pt_PT" />
-
-<!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Forja — Aprende com IA o que precisas para trabalhar" />
-<meta name="twitter:description" content="Gera cursos profissionais personalizados em segundos. Aprende automação e IA aplicada." />
 <meta name="twitter:image" content="https://forjaai.app/og.png" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<!-- Favicon inline -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FBFAF7'/><text x='50' y='72' font-family='Georgia' font-size='62' font-weight='600' text-anchor='middle' fill='%236B1A2E' font-style='italic'>F</text></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   :root {
-    /* Paleta verde-floresta + sálvia + cobre */
-    --ink:        #1F3A2E;
-    --bg:         #EFE9DD;
-    --bg-deep:    #E2DBCB;
-    --brown:      #7A8A5E;
-    --cta:        #C97A4A;
-
-    /* Derivados */
-    --ink-soft:   #3A4A40;
-    --ink-muted:  #6B7065;
-    --line:       #CFC7B5;
-    --line-soft:  #DDD5C2;
-    --paper:      #F5F1E6;
-    --post-it:    #E8DDB8;
-
-    /* Densidade */
-    --pad-section: 110px;
-    --gap-card: 28px;
-    --hero-pad: 96px;
-  }
-
-  [data-theme="dark"] {
-    --ink:        #EAE5D6;
-    --bg:         #14211B;
-    --bg-deep:    #1B2A23;
-    --brown:      #A8B88A;
-    --cta:        #DD9060;
-    --ink-soft:   #C9C4B5;
-    --ink-muted:  #8A8B7E;
-    --line:       #2D3D34;
-    --line-soft:  #243029;
-    --paper:      #1B2A23;
-    --post-it:    #2A3528;
+    --bg: #FBFAF7;
+    --bg-2: #F4F2EC;
+    --paper: #FFFFFF;
+    --ink: #14141A;
+    --ink-soft: #3D3D44;
+    --ink-mute: #707078;
+    --bordeaux: #6B1A2E;
+    --bordeaux-deep: #4D0F1F;
+    --bordeaux-soft: rgba(107, 26, 46, 0.08);
+    --gold: #B0853A;
+    --line: #E4E2DA;
+    --line-soft: #EFEDE6;
+    --shadow-sm: 0 1px 2px rgba(20, 20, 26, 0.04);
+    --shadow-md: 0 4px 16px rgba(20, 20, 26, 0.06);
+    --shadow-lg: 0 12px 40px rgba(20, 20, 26, 0.08);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background: var(--bg);
     color: var(--ink);
-    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.65;
     font-size: 16px;
-    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    transition: background 0.3s ease, color 0.3s ease;
   }
 
-  .display { font-family: 'Fraunces', Georgia, serif; letter-spacing: -0.02em; font-feature-settings: "ss01"; }
-  .italic-serif { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+  .serif { font-family: 'Source Serif 4', Georgia, serif; }
 
-  .wrap {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 28px;
-    position: relative;
+  /* Subtle radial gradient background */
+  body::before {
+    content: "";
+    position: fixed;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1400px;
+    height: 800px;
+    background: radial-gradient(ellipse, rgba(107, 26, 46, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
   }
+
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
 
   /* ============ NAV ============ */
-  nav.topbar {
-    padding: 22px 0;
+  nav {
+    border-bottom: 1px solid var(--line);
+    background: rgba(251, 250, 247, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     position: sticky;
     top: 0;
-    background: color-mix(in srgb, var(--bg) 90%, transparent);
-    backdrop-filter: blur(12px);
-    z-index: 100;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
+    z-index: 50;
   }
-  nav.topbar.scrolled { border-bottom-color: var(--line); }
-  .nav-inner {
+  .nav-top {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 40px;
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  @media (max-width: 720px) {
+    .nav-top { font-size: 10px; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  }
+  .nav-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
   }
   .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 21px;
-    letter-spacing: -0.01em;
+    font-family: 'Source Serif 4', serif;
+    font-size: 28px;
+    font-weight: 600;
     color: var(--ink);
+    letter-spacing: -0.5px;
     text-decoration: none;
   }
-  .logo-mark {
-    width: 30px; height: 30px;
-    background: var(--ink);
-    color: var(--bg);
-    border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 15px; font-weight: 600;
-    font-family: 'Fraunces', serif;
+  .logo .ornament {
+    color: var(--bordeaux);
+    font-style: italic;
+    font-weight: 400;
   }
   .nav-links {
     display: flex;
-    gap: 32px;
     align-items: center;
-    flex: 1;
-    margin-left: 16px;
+    gap: 28px;
   }
   .nav-links a {
     color: var(--ink-soft);
     text-decoration: none;
-    font-size: 14.5px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 500;
     transition: color 0.2s;
   }
-  .nav-links a:hover { color: var(--ink); }
+  .nav-links a:hover { color: var(--bordeaux); }
   .nav-cta {
-    display: flex; align-items: center; gap: 18px;
+    background: var(--ink);
+    color: var(--bg) !important;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s;
   }
-  .nav-cta .signin {
-    color: var(--ink-soft);
-    text-decoration: none;
-    font-size: 14.5px;
+  .nav-cta:hover {
+    background: var(--bordeaux);
+    color: var(--bg) !important;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+  @media (max-width: 720px) {
+    .nav-links a:not(.nav-cta) { display: none; }
   }
 
-  /* ============ BUTTONS ============ */
+  /* ============ HERO ============ */
+  .hero {
+    padding: 80px 0 110px;
+    text-align: center;
+  }
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--bordeaux);
+    margin-bottom: 32px;
+    box-shadow: var(--shadow-sm);
+  }
+  .kicker::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--bordeaux);
+    border-radius: 50%;
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+  }
+
+  h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(44px, 6.5vw, 84px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    color: var(--ink);
+    margin-bottom: 28px;
+    max-width: 980px;
+    margin-inline: auto;
+  }
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--bordeaux);
+  }
+
+  .deck {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(18px, 2vw, 22px);
+    color: var(--ink-soft);
+    max-width: 680px;
+    margin: 0 auto 44px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  .deck::before {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 1px;
+    background: var(--bordeaux);
+    margin: 0 auto 28px;
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
   .btn {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 8px;
-    padding: 13px 22px;
-    font-size: 14.5px;
-    font-weight: 500;
+    padding: 15px 30px;
+    font-size: 14px;
+    font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 10px;
+    transition: all 0.25s ease;
     font-family: inherit;
-    white-space: nowrap;
+    border: 1.5px solid transparent;
   }
   .btn-primary {
-    background: var(--cta);
-    color: #FFF8F0;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.15);
+    background: var(--bordeaux);
+    color: white;
+    box-shadow: var(--shadow-md);
   }
   .btn-primary:hover {
-    background: color-mix(in srgb, var(--cta) 88%, #000);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(194, 94, 44, 0.28);
+    background: var(--bordeaux-deep);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
   }
   .btn-ghost {
-    background: transparent;
+    background: var(--paper);
     color: var(--ink);
     border-color: var(--line);
   }
   .btn-ghost:hover {
     border-color: var(--ink);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .hero-meta {
+    margin-top: 56px;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 22px;
     background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    box-shadow: var(--shadow-sm);
   }
-  .btn-sm { padding: 10px 18px; font-size: 14px; }
+  .hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .hero-meta-item .num {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    color: var(--bordeaux);
+    font-size: 16px;
+  }
+  .hero-meta-divider {
+    width: 1px;
+    height: 16px;
+    background: var(--line);
+  }
 
-  @media (max-width: 880px) {
-    .nav-links { display: none; }
+  /* ============ ORNAMENT ============ */
+  .ornament-rule {
+    text-align: center;
+    padding: 0;
+    color: var(--bordeaux);
+    font-family: 'Source Serif 4', serif;
+    font-size: 22px;
+    opacity: 0.5;
   }
 
-  /* ============ HERO ============ */
-  .hero {
-    padding: var(--hero-pad) 0 calc(var(--hero-pad) - 16px);
-  }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.05fr 1fr;
-    gap: 56px;
-    align-items: start;
-  }
-  @media (max-width: 980px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  }
+  /* ============ SECTION ============ */
+  section { padding: 100px 0; position: relative; }
 
-  h1.hero-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: clamp(46px, 5.6vw, 78px);
-    line-height: 1.0;
-    letter-spacing: -0.03em;
-    color: var(--ink);
-    margin-bottom: 28px;
+  .section-head {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 72px;
   }
-  h1.hero-title .accent {
-    font-family: 'Instrument Serif', serif;
+  .section-num {
+    font-family: 'Source Serif 4', serif;
     font-style: italic;
-    color: var(--brown);
-    font-weight: 400;
-    position: relative;
+    font-size: 16px;
+    color: var(--bordeaux);
+    margin-bottom: 14px;
     display: inline-block;
+    padding: 4px 16px;
+    background: var(--bordeaux-soft);
+    border-radius: 100px;
   }
-  h1.hero-title .accent::after {
-    content: "";
-    position: absolute;
-    left: 2%; right: 4%;
-    bottom: -2px;
-    height: 8px;
-    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 8' preserveAspectRatio='none'><path d='M2 5 Q 50 1, 100 4 T 198 3' stroke='%238B5E3C' stroke-width='1.6' fill='none' stroke-linecap='round'/></svg>") no-repeat center/100% 100%;
-    opacity: 0.85;
+  h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -1.4px;
+    margin-bottom: 18px;
   }
-
-  .hero-sub {
-    font-size: 17.5px;
+  h2 em { font-style: italic; color: var(--bordeaux); font-weight: 400; }
+  .section-lede {
+    font-family: 'Source Serif 4', serif;
+    font-size: 19px;
+    color: var(--ink-soft);
     line-height: 1.55;
-    color: var(--ink-soft);
-    max-width: 480px;
-    margin-bottom: 32px;
   }
 
-  .cta-row {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 36px;
-  }
-  .play-icon {
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    background: var(--ink);
-    color: var(--bg);
-    display: inline-flex; align-items: center; justify-content: center;
-    font-size: 9px;
-    margin-right: 4px;
-  }
-
-  .hero-trust {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 32px;
-  }
-  .avatar-stack {
-    display: flex;
-  }
-  .avatar-stack img {
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    border: 2px solid var(--bg);
-    object-fit: cover;
-    margin-left: -8px;
-    background: var(--bg-deep);
-  }
-  .avatar-stack img:first-child { margin-left: 0; }
-  .stars {
-    display: flex;
-    gap: 1px;
-    color: var(--cta);
-    font-size: 13px;
-    line-height: 1;
-  }
-  .trust-text {
-    font-size: 13px;
-    color: var(--ink-soft);
-  }
-  .trust-text strong { color: var(--ink); font-weight: 500; }
-
-  .hero-features {
+  /* ============ PILLARS (cards suaves) ============ */
+  .pillars {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    padding-top: 28px;
-    border-top: 1px solid var(--line-soft);
   }
-  @media (max-width: 620px) { .hero-features { grid-template-columns: 1fr; gap: 16px; } }
-  .hero-feat {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .hero-feat-icon {
-    width: 32px; height: 32px;
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--brown);
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .hero-feat-icon svg { width: 16px; height: 16px; }
-  .hero-feat-text strong {
-    display: block;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 2px;
-  }
-  .hero-feat-text span {
-    font-size: 13px;
-    color: var(--ink-muted);
-    line-height: 1.45;
-  }
+  @media (max-width: 880px) { .pillars { grid-template-columns: 1fr; } }
 
-  /* hero media (right) */
-  .hero-media {
-    position: relative;
-    align-self: stretch;
-    min-height: 500px;
-  }
-  .hero-illus {
-    width: 100%;
-    height: 100%;
-    min-height: 500px;
-    border-radius: 4px;
+  .pillar {
     background: var(--paper);
     border: 1px solid var(--line);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
+    border-radius: 20px;
+    padding: 36px 32px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
   }
-  .hero-photo {
+  .pillar::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
     width: 100%;
-    height: 100%;
-    min-height: 500px;
-    border-radius: 4px;
-    object-fit: cover;
-    background: var(--bg-deep);
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    height: 3px;
+    background: var(--bordeaux);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
   }
+  .pillar:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
+  }
+  .pillar:hover::before { transform: scaleX(1); }
 
-  .hero-quote {
-    position: absolute;
-    bottom: 24px; right: 24px;
-    width: 260px;
-    background: var(--ink);
-    color: var(--bg);
-    padding: 22px 22px 20px;
-    border-radius: 6px;
-    font-size: 14.5px;
-    line-height: 1.5;
-    box-shadow: 0 12px 32px rgba(26,23,20,0.25);
-  }
-  [data-theme="dark"] .hero-quote {
-    background: #0E0B09;
-    color: var(--ink);
-    border: 1px solid var(--line);
-  }
-  .hero-quote::before {
-    content: "\201C";
-    font-family: 'Fraunces', serif;
-    position: absolute;
-    top: 4px; left: 18px;
-    font-size: 36px;
-    color: var(--cta);
-    line-height: 1;
-  }
-  .hero-quote p {
-    padding-top: 14px;
+  .pillar-num {
+    font-family: 'Source Serif 4', serif;
     font-style: italic;
-    font-family: 'Instrument Serif', serif;
-    font-size: 16px;
-    line-height: 1.45;
-  }
-  .hero-quote .author {
-    margin-top: 14px;
-    padding-top: 12px;
-    border-top: 1px solid rgba(255,255,255,0.12);
-    font-size: 12.5px;
-    color: rgba(255,255,255,0.7);
-    font-style: normal;
-    font-family: 'Inter', sans-serif;
-  }
-  [data-theme="dark"] .hero-quote .author {
-    border-top-color: var(--line);
-    color: var(--ink-muted);
-  }
-  .hero-quote .author strong { color: #fff; font-weight: 500; }
-  [data-theme="dark"] .hero-quote .author strong { color: var(--ink); }
-
-  /* ============ LOGOS STRIP ============ */
-  .logos-strip {
-    padding: 36px 0;
-    border-top: 1px solid var(--line-soft);
-    border-bottom: 1px solid var(--line-soft);
-  }
-  .logos-grid {
-    display: grid;
-    grid-template-columns: 1.2fr repeat(5, 1fr);
-    gap: 32px;
-    align-items: center;
-  }
-  @media (max-width: 880px) { .logos-grid { grid-template-columns: 1fr; gap: 16px; text-align: center; } }
-  .logos-label {
     font-size: 13px;
-    color: var(--ink-muted);
-    line-height: 1.4;
-    max-width: 180px;
-  }
-  .logo-item {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 18px;
-    color: var(--ink-soft);
-    text-align: center;
-    opacity: 0.7;
-    letter-spacing: -0.01em;
-  }
-
-  /* ============ SECTION SHARED ============ */
-  section.section { padding: var(--pad-section) 0; }
-  section.section.bordered { border-top: 1px solid var(--line-soft); }
-
-  .eyebrow {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--cta);
+    color: var(--gold);
     text-transform: uppercase;
-    letter-spacing: 0.16em;
-    margin-bottom: 18px;
-    text-align: center;
+    letter-spacing: 2.5px;
+    margin-bottom: 22px;
   }
-  .eyebrow.left { text-align: left; }
-
-  h2.section-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: clamp(34px, 4vw, 50px);
-    line-height: 1.05;
-    letter-spacing: -0.025em;
-    color: var(--ink);
-    text-align: center;
-    max-width: 760px;
-    margin: 0 auto 18px;
+  .pillar h3 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 14px;
+    line-height: 1.2;
+    letter-spacing: -0.4px;
   }
-  h2.section-title.left { text-align: left; margin-left: 0; }
-  h2.section-title em {
-    font-family: 'Instrument Serif', serif;
-    font-style: italic;
-    color: var(--brown);
-    font-weight: 400;
-  }
-
-  .section-lede {
-    text-align: center;
+  .pillar h3 em { font-style: italic; color: var(--bordeaux); }
+  .pillar p {
     color: var(--ink-soft);
-    font-size: 16.5px;
-    max-width: 580px;
-    margin: 0 auto 56px;
-    line-height: 1.55;
+    font-size: 15px;
+    line-height: 1.7;
   }
 
-  /* ============ HOW IT WORKS ============ */
+  /* ============ HOW IT WORKS — STEPS ============ */
+  .how-section {
+    background: var(--bg-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
   .steps {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--gap-card);
-    margin-top: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
     position: relative;
   }
-  @media (max-width: 980px) { .steps { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
+  @media (max-width: 880px) { .steps { grid-template-columns: 1fr; } }
 
   .step {
     background: var(--paper);
-    border: 1px solid var(--line-soft);
-    border-radius: 10px;
-    padding: 26px 24px 28px;
+    border-radius: 18px;
+    padding: 36px 30px;
+    border: 1px solid var(--line);
     position: relative;
-    transition: border-color 0.2s, transform 0.2s;
+    transition: all 0.3s ease;
   }
   .step:hover {
-    border-color: var(--line);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
   }
-  .step-num {
-    font-family: 'Fraunces', serif;
+  .step-number {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--bordeaux);
+    margin-bottom: 20px;
     font-weight: 400;
-    font-size: 22px;
-    color: var(--ink-muted);
-    margin-bottom: 18px;
-    letter-spacing: 0.02em;
   }
-  .step-icon {
-    width: 56px; height: 56px;
-    margin-bottom: 22px;
-    color: var(--brown);
-  }
-  .step-icon svg { width: 100%; height: 100%; }
   .step h4 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Source Serif 4', serif;
+    font-size: 22px;
     font-weight: 500;
-    font-size: 19px;
-    line-height: 1.25;
     margin-bottom: 10px;
-    color: var(--ink);
-    letter-spacing: -0.01em;
+    line-height: 1.25;
   }
   .step p {
     color: var(--ink-soft);
-    font-size: 14.5px;
-    line-height: 1.55;
-  }
-
-  /* arrow connectors */
-  .step-arrow {
-    position: absolute;
-    top: 60px;
-    right: -16px;
-    color: var(--cta);
-    opacity: 0.55;
-    z-index: 2;
-    pointer-events: none;
-  }
-  .step-arrow svg { width: 30px; height: 14px; }
-  @media (max-width: 980px) { .step-arrow { display: none; } }
-
-  .steps-cta {
-    text-align: center;
-    margin-top: 56px;
-  }
-
-  /* ============ WHY ============ */
-  .why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.1fr 0.7fr;
-    gap: 48px;
-    align-items: stretch;
-  }
-  @media (max-width: 1000px) {
-    .why-grid { grid-template-columns: 1fr; }
-  }
-
-  .why-text h2 {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: clamp(32px, 3.6vw, 44px);
-    line-height: 1.08;
-    letter-spacing: -0.025em;
-    margin-bottom: 18px;
-  }
-  .why-lede {
-    color: var(--ink-soft);
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 28px;
-  }
-  .why-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  .why-list li {
-    display: grid;
-    grid-template-columns: 22px 1fr;
-    gap: 12px;
-    align-items: start;
-  }
-  .why-check {
-    width: 18px; height: 18px;
-    border-radius: 50%;
-    background: var(--cta);
-    color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px;
-    margin-top: 4px;
-    flex-shrink: 0;
-  }
-  .why-list strong {
-    font-weight: 500;
-    color: var(--ink);
-    display: block;
-    margin-bottom: 2px;
     font-size: 15px;
+    line-height: 1.65;
   }
-  .why-list span {
+
+  /* ============ FOR WHOM ============ */
+  .for-list {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .for-row {
+    display: grid;
+    grid-template-columns: 60px 1fr 2fr;
+    gap: 32px;
+    padding: 32px 28px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    align-items: center;
+    margin-bottom: 14px;
+    transition: all 0.25s ease;
+  }
+  .for-row:hover {
+    border-color: var(--bordeaux);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+  }
+  @media (max-width: 720px) {
+    .for-row { grid-template-columns: 1fr; gap: 8px; padding: 24px; }
+  }
+  .for-num {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 26px;
+    color: var(--bordeaux);
+    font-weight: 400;
+  }
+  .for-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.25;
+  }
+  .for-desc {
     color: var(--ink-soft);
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 15px;
+    line-height: 1.6;
   }
 
-  .why-photo {
-    width: 100%;
-    border-radius: 4px;
-    object-fit: cover;
-    background: var(--bg-deep);
-    min-height: 460px;
-    align-self: stretch;
+  /* ============ FAQ ============ */
+  .faq-list {
+    max-width: 820px;
+    margin: 0 auto;
   }
 
-  .post-it {
-    background: var(--post-it);
-    padding: 32px 28px 36px;
-    transform: rotate(2.5deg);
-    box-shadow:
-      0 1px 0 rgba(0,0,0,0.04),
-      0 14px 30px -12px rgba(139, 94, 60, 0.28);
+  /* ============ EXEMPLO REAL (Product Demo) ============ */
+  .exemplo-section {
+    padding: 100px 0;
+    background: var(--ink);
+    color: var(--bg);
     position: relative;
-    align-self: center;
-    border-radius: 2px;
+    overflow: hidden;
   }
-  [data-theme="dark"] .post-it { background: #2E2620; box-shadow: 0 14px 30px -12px rgba(0,0,0,0.5); }
-  .post-it::before {
+  .exemplo-section::before {
     content: "";
     position: absolute;
-    top: -10px; left: 50%;
-    transform: translateX(-50%) rotate(-3deg);
-    width: 70px; height: 18px;
-    background: rgba(139, 94, 60, 0.18);
-    border-radius: 1px;
+    top: -300px;
+    right: -200px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(176, 133, 58, 0.12) 0%, transparent 60%);
+    pointer-events: none;
   }
-  .post-it .quote-mark {
-    width: 24px; height: 24px;
-    border-radius: 50%;
-    background: var(--ink);
-    color: var(--bg);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Fraunces', serif;
-    font-size: 16px;
-    margin-bottom: 16px;
-  }
-  .post-it p {
-    font-family: 'Instrument Serif', serif;
-    font-style: italic;
-    font-size: 22px;
-    line-height: 1.32;
-    color: var(--ink);
-    letter-spacing: -0.005em;
-  }
+  .exemplo-section > .wrap { position: relative; z-index: 2; }
 
-  /* ============ STORIES ============ */
-  .stories-grid {
+  .exemplo-section .section-num {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.7);
+  }
+  .exemplo-section h2 { color: var(--bg); }
+  .exemplo-section h2 em { color: var(--gold); }
+  .exemplo-section .section-lede { color: rgba(255,255,255,0.65); }
+
+  .demo-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--gap-card);
-    margin-top: 16px;
-  }
-  @media (max-width: 880px) { .stories-grid { grid-template-columns: 1fr; } }
-
-  .story {
-    background: var(--paper);
-    border: 1px solid var(--line-soft);
-    border-radius: 10px;
-    padding: 28px 26px;
-    display: flex;
-    flex-direction: column;
-  }
-  .story .qm {
-    font-family: 'Fraunces', serif;
-    font-size: 36px;
-    color: var(--cta);
-    line-height: 0.6;
-    margin-bottom: 12px;
-  }
-  .story p {
-    font-size: 15.5px;
-    line-height: 1.55;
-    color: var(--ink-soft);
-    margin-bottom: 24px;
-    flex: 1;
-  }
-  .story-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding-top: 18px;
-    border-top: 1px solid var(--line-soft);
-  }
-  .story-author img {
-    width: 38px; height: 38px;
-    border-radius: 50%;
-    object-fit: cover;
-    background: var(--bg-deep);
-  }
-  .story-author .name {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--ink);
-  }
-  .story-author .role {
-    font-size: 12.5px;
-    color: var(--ink-muted);
-  }
-
-  .stories-dots {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    margin-top: 32px;
-  }
-  .stories-dots span {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--line);
-  }
-  .stories-dots span.active { background: var(--cta); width: 18px; border-radius: 3px; }
-
-  /* ============ PRICING ============ */
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--gap-card);
-    margin-top: 16px;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 32px;
+    align-items: start;
     max-width: 1080px;
-    margin-inline: auto;
+    margin: 0 auto;
   }
-  @media (max-width: 880px) { .pricing-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 920px) { .demo-grid { grid-template-columns: 1fr; } }
 
-  .price {
-    background: var(--paper);
-    border: 1px solid var(--line-soft);
-    border-radius: 10px;
-    padding: 32px 28px 28px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  .demo-input {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 18px;
+    padding: 28px;
   }
-  .price.featured {
-    background: var(--ink);
-    color: var(--bg);
-    border-color: var(--ink);
-    box-shadow: 0 18px 50px -22px rgba(26,23,20,0.4);
-  }
-  [data-theme="dark"] .price.featured {
-    background: #0E0B09;
-    border: 1px solid var(--brown);
-  }
-  .price-badge {
-    position: absolute;
-    top: -12px; left: 50%;
-    transform: translateX(-50%);
-    background: var(--cta);
-    color: #fff;
-    padding: 5px 14px;
-    border-radius: 999px;
-    font-size: 11.5px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
+  .demo-input-label {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--gold);
+    margin-bottom: 8px;
     text-transform: uppercase;
+    letter-spacing: 1.5px;
   }
-  .price-name {
-    font-family: 'Fraunces', serif;
-    font-size: 19px;
-    font-weight: 500;
-    margin-bottom: 6px;
-  }
-  .price-tag {
-    margin: 18px 0 8px;
-    display: flex;
-    align-items: baseline;
-    gap: 4px;
-  }
-  .price-tag .num {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: 48px;
-    line-height: 1;
-    letter-spacing: -0.03em;
-  }
-  .price-tag .currency {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    color: var(--ink-muted);
-  }
-  .price.featured .price-tag .currency { color: rgba(255,255,255,0.55); }
-  .price-tag .period {
-    font-size: 14px;
-    color: var(--ink-muted);
-  }
-  .price.featured .price-tag .period { color: rgba(255,255,255,0.55); }
-  .price-desc {
-    font-size: 13.5px;
-    color: var(--ink-muted);
+  .demo-input-text {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 14px 18px;
+    color: var(--bg);
+    font-family: 'Source Serif 4', serif;
+    font-size: 16px;
     margin-bottom: 22px;
-    min-height: 38px;
+    line-height: 1.5;
   }
-  .price.featured .price-desc { color: rgba(255,255,255,0.65); }
-  .price ul {
-    list-style: none;
+  .demo-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .demo-tag {
+    padding: 6px 14px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 100px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    font-family: 'Source Serif 4', serif;
+  }
+  .demo-tag.active {
+    background: rgba(176, 133, 58, 0.15);
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .demo-output {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 18px;
+    padding: 28px;
+    position: relative;
+    max-height: 540px;
+    overflow-y: auto;
+  }
+  .demo-output::before {
+    content: "Curso gerado em 7 segundos";
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gold);
+    font-weight: 600;
+    padding: 4px 10px;
+    background: rgba(176, 133, 58, 0.1);
+    border-radius: 4px;
+  }
+  .demo-course-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--bg);
+    margin-bottom: 6px;
+    margin-right: 180px;
+    line-height: 1.25;
+  }
+  .demo-course-meta {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
     margin-bottom: 24px;
-    flex: 1;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
-  .price li {
-    font-size: 14px;
-    padding: 8px 0;
-    color: var(--ink-soft);
+  .demo-modulo {
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px dashed rgba(255,255,255,0.08);
+  }
+  .demo-modulo:last-child { border-bottom: none; padding-bottom: 0; }
+  .demo-modulo-num {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+  }
+  .demo-modulo-titulo {
+    font-family: 'Source Serif 4', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--bg);
+    margin-bottom: 10px;
+  }
+  .demo-aulas {
+    list-style: none;
+    padding: 0;
+  }
+  .demo-aulas li {
     display: flex;
     align-items: flex-start;
     gap: 10px;
+    padding: 5px 0;
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
   }
-  .price.featured li { color: rgba(255,255,255,0.85); }
-  .price li::before {
-    content: "✓";
-    color: var(--cta);
-    font-weight: 600;
+  .demo-aulas li::before {
+    content: "→";
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .demo-projeto {
+    background: rgba(176, 133, 58, 0.08);
+    border-left: 2px solid var(--gold);
+    padding: 12px 16px;
+    margin-top: 12px;
+    border-radius: 0 8px 8px 0;
     font-size: 13px;
-    margin-top: 1px;
+    color: rgba(255,255,255,0.8);
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
   }
-  .price.featured li::before { color: var(--cta); }
-  .price-btn {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
+  .demo-projeto strong { color: var(--gold); font-style: normal; font-family: 'Inter'; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; display: block; margin-bottom: 4px; }
+
+  /* ============ FAQ ============ */
+  .faq-item {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s;
   }
-  .price.featured .btn-ghost {
-    color: var(--bg);
-    border-color: rgba(255,255,255,0.25);
+  .faq-item:hover { border-color: var(--bordeaux); }
+  .faq-item[open] { border-color: var(--bordeaux); box-shadow: var(--shadow-sm); }
+
+  .faq-item summary {
+    font-family: 'Source Serif 4', serif;
+    font-size: 19px;
+    font-weight: 500;
+    padding: 22px 28px;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 1.35;
+    color: var(--ink);
   }
-  .price.featured .btn-ghost:hover {
-    background: var(--cta);
-    border-color: var(--cta);
-    color: #fff;
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: "+";
+    font-family: 'Source Serif 4', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--bordeaux);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-item p {
+    padding: 0 28px 24px;
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.7;
   }
 
   /* ============ FINAL CTA ============ */
   .final {
-    margin: 60px 0 0;
+    padding: 130px 0;
+    text-align: center;
     background: var(--ink);
     color: var(--bg);
-    border-radius: 16px;
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
   }
-  [data-theme="dark"] .final { background: #0E0B09; border: 1px solid var(--line); }
-
-  .final-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 0;
-    align-items: stretch;
+  .final::before {
+    content: "";
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(107, 26, 46, 0.25) 0%, transparent 60%);
+    pointer-events: none;
   }
-  @media (max-width: 880px) { .final-grid { grid-template-columns: 1fr; } }
-
-  .final-left {
-    padding: 56px 52px 52px;
-  }
-  @media (max-width: 600px) { .final-left { padding: 40px 28px; } }
-  .final-left h2 {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: clamp(32px, 3.8vw, 44px);
-    line-height: 1.05;
-    letter-spacing: -0.025em;
-    margin-bottom: 14px;
-    color: var(--bg);
-  }
-  .final-left h2 em {
-    font-family: 'Instrument Serif', serif;
-    color: var(--brown);
-    font-style: italic;
-  }
-  [data-theme="dark"] .final-left h2 em { color: var(--cta); }
-  .final-left p {
+  .final > * { position: relative; z-index: 2; }
+  .final .section-num {
+    background: rgba(255,255,255,0.08);
     color: rgba(255,255,255,0.7);
-    font-size: 15.5px;
-    margin-bottom: 28px;
-    max-width: 420px;
   }
-  [data-theme="dark"] .final-left p { color: var(--ink-soft); }
+  .final h2 { color: var(--bg); margin: 0 auto 20px; max-width: 740px; }
+  .final h2 em { color: var(--gold); }
+  .final p {
+    font-family: 'Source Serif 4', serif;
+    font-size: 19px;
+    color: rgba(255,255,255,0.7);
+    max-width: 560px;
+    margin: 0 auto 44px;
+    line-height: 1.55;
+  }
 
-  .waitlist-form {
+  .form {
     display: flex;
-    gap: 8px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.14);
-    border-radius: 10px;
+    max-width: 480px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
     padding: 6px;
-    max-width: 460px;
-    margin-bottom: 16px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 60px rgba(0,0,0,0.3);
+    gap: 6px;
   }
-  [data-theme="dark"] .waitlist-form {
-    background: var(--bg);
-    border-color: var(--line);
-  }
-  .waitlist-form input {
+  .form input {
     flex: 1;
+    padding: 14px 18px;
     background: transparent;
     border: none;
-    color: var(--bg);
-    padding: 12px 14px;
-    font-family: inherit;
-    font-size: 14.5px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 16px;
+    color: var(--ink);
     outline: none;
-    min-width: 0;
   }
-  [data-theme="dark"] .waitlist-form input { color: var(--ink); }
-  .waitlist-form input::placeholder { color: rgba(255,255,255,0.45); }
-  [data-theme="dark"] .waitlist-form input::placeholder { color: var(--ink-muted); }
-  .waitlist-form button {
-    background: var(--cta);
-    color: #fff;
+  .form input::placeholder {
+    color: var(--ink-mute);
+    font-style: italic;
+  }
+  .form button {
+    background: var(--bordeaux);
+    color: white;
     border: none;
-    padding: 11px 20px;
-    border-radius: 7px;
+    padding: 0 26px;
+    border-radius: 8px;
     font-family: inherit;
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
     cursor: pointer;
-    white-space: nowrap;
     transition: background 0.2s;
   }
-  .waitlist-form button:hover { background: color-mix(in srgb, var(--cta) 85%, #000); }
-  .waitlist-form button:disabled { opacity: 0.7; cursor: not-allowed; }
+  .form button:hover { background: var(--bordeaux-deep); }
 
-  .final-bullets {
-    display: flex;
-    gap: 22px;
-    flex-wrap: wrap;
-    color: rgba(255,255,255,0.65);
+  .final-meta {
+    margin-top: 22px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+  }
+  .form-microcopy {
+    margin-top: 14px;
     font-size: 13px;
-  }
-  [data-theme="dark"] .final-bullets { color: var(--ink-muted); }
-  .final-bullets span {
-    display: flex; align-items: center; gap: 6px;
-  }
-  .final-bullets span::before {
-    content: "✓"; color: var(--cta); font-weight: 600;
-  }
-
-  .final-right {
-    position: relative;
-    overflow: hidden;
-    min-height: 340px;
-    background: #2A2520;
-  }
-  .final-right img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .waitlist-status {
-    font-size: 13px;
-    color: rgba(255,255,255,0.65);
-    margin-top: 8px;
+    color: rgba(255,255,255,0.55);
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
   }
 
   /* ============ FOOTER ============ */
   footer {
-    padding: 64px 0 36px;
-    margin-top: 80px;
-    border-top: 1px solid var(--line-soft);
-  }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1.5fr repeat(3, 1fr) 1fr;
-    gap: 40px;
-    margin-bottom: 56px;
-  }
-  @media (max-width: 880px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-  }
-  .footer-brand p {
-    margin-top: 16px;
-    color: var(--ink-muted);
-    font-size: 13.5px;
-    max-width: 240px;
-    line-height: 1.55;
-  }
-  .footer-col h5 {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 16px;
-    letter-spacing: 0.02em;
-  }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .footer-col a {
-    color: var(--ink-muted);
-    text-decoration: none;
-    font-size: 13.5px;
-    transition: color 0.2s;
-  }
-  .footer-col a:hover { color: var(--ink); }
-
-  .footer-social {
-    display: flex;
-    gap: 10px;
-  }
-  .footer-social a {
-    width: 32px; height: 32px;
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--ink-soft);
-    transition: all 0.2s;
-  }
-  .footer-social a:hover {
     background: var(--ink);
-    color: var(--bg);
-    border-color: var(--ink);
+    color: rgba(255,255,255,0.5);
+    padding: 30px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
   }
-  .footer-social svg { width: 14px; height: 14px; }
-
-  .footer-bottom {
-    padding-top: 28px;
-    border-top: 1px solid var(--line-soft);
+  .footer-i {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
     flex-wrap: wrap;
     gap: 16px;
-    color: var(--ink-muted);
-    font-size: 12.5px;
   }
-  .footer-bottom .links { display: flex; gap: 20px; }
-  .footer-bottom a { color: var(--ink-muted); text-decoration: none; }
-  .footer-bottom a:hover { color: var(--ink); }
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; margin-left: 24px; }
+  footer a:hover { color: white; }
 
-  /* entry animations */
+  /* entry animation */
   @keyframes rise {
-    from { opacity: 0; transform: translateY(14px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-  .hero > .wrap > * > * > * { animation: rise 0.7s cubic-bezier(0.2,0.7,0.3,1) backwards; }
+  .hero > .wrap > * {
+    animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+  }
+  .hero .kicker { animation-delay: 0s; }
+  .hero h1 { animation-delay: 0.1s; }
+  .hero .deck { animation-delay: 0.25s; }
+  .hero .cta-row { animation-delay: 0.4s; }
+  .hero .hero-meta { animation-delay: 0.55s; }
 </style>
 </head>
 <body>
 
 <!-- ============ NAV ============ -->
-<nav class="topbar" id="topbar">
-  <div class="wrap nav-inner">
-    <a href="#" class="logo">
-      <span class="logo-mark">F</span>
-      <span>Forja</span>
-    </a>
-    <div class="nav-links">
-      <a href="#como-funciona">Como funciona</a>
-      <a href="#para-quem">Para quem é</a>
-      <a href="#porque-funciona">Recursos</a>
-      <a href="#precos">Preços</a>
-      <a href="#historias">Histórias</a>
+<nav>
+  <div class="wrap">
+    <div class="nav-top">
+      <span>Para profissionais que aprendem a aplicar</span>
+      <span>Lisboa &middot; São Paulo &middot; Maputo</span>
     </div>
-    <div class="nav-cta">
-      <a href="#" class="signin">Entrar</a>
-      <a href="#waitlist" class="btn btn-primary btn-sm">Quero começar</a>
+    <div class="nav-main">
+      <a href="#" class="logo">Forja<span class="ornament">·</span></a>
+      <div class="nav-links">
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#para-quem">Para quem</a>
+        <a href="#faq">Perguntas</a>
+        <a href="#waitlist" class="nav-cta">Reservar lugar</a>
+      </div>
     </div>
   </div>
 </nav>
@@ -1066,461 +860,282 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-left">
-        <h1 class="hero-title">
-          Aprende aquilo<br/>
-          que precisas.<br/>
-          <span class="accent">Para o teu trabalho.</span>
-        </h1>
-        <p class="hero-sub">
-          A Forja cria um plano de aprendizagem feito para ti, com acompanhamento próximo e prática real até ao fim.
-        </p>
-        <div class="cta-row">
-          <a href="#waitlist" class="btn btn-primary">Reservar o meu lugar</a>
-          <a href="#como-funciona" class="btn btn-ghost">
-            <span class="play-icon">▶</span>
-            Ver como funciona
-          </a>
-        </div>
-
-        <div class="hero-trust">
-          <div class="avatar-stack">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=faces" alt="" />
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=faces" alt="" />
-            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=faces" alt="" />
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=faces" alt="" />
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=faces" alt="" />
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="trust-text"><strong>4,95</strong> de mais de 1.200 profissionais</div>
-          </div>
-        </div>
-
-        <div class="hero-features">
-          <div class="hero-feat">
-            <div class="hero-feat-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-            </div>
-            <div class="hero-feat-text">
-              <strong>Foca-te no que importa</strong>
-              <span>Aprende o que se aplica ao teu dia-a-dia.</span>
-            </div>
-          </div>
-          <div class="hero-feat">
-            <div class="hero-feat-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
-            </div>
-            <div class="hero-feat-text">
-              <strong>Aprendizagem prática</strong>
-              <span>Projectos reais desde a primeira aula.</span>
-            </div>
-          </div>
-          <div class="hero-feat">
-            <div class="hero-feat-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 14l-2 2 2 2M19 16h-4"/></svg>
-            </div>
-            <div class="hero-feat-text">
-              <strong>Acompanhamento</strong>
-              <span>Não estás sozinho. Estamos contigo.</span>
-            </div>
-          </div>
-        </div>
+    <div class="kicker">Beta privada em Julho de 2026</div>
+    <h1>Aprende exactamente o que precisas<br/>para o teu trabalho.<br/><em>Em dias, não meses.</em></h1>
+    <p class="deck">Diz-nos o teu objectivo &mdash; "automatizar relatórios SAP", "construir agentes de IA", "dominar Power BI". A Forja desenha-te um curso completo em segundos: módulos, exercícios e um projecto real. Depois acompanha-te até ao fim.</p>
+    <div class="cta-row">
+      <a href="#waitlist" class="btn btn-primary">Quero acesso antecipado</a>
+      <a href="#exemplo" class="btn btn-ghost">Ver exemplo real</a>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="num">Julho</span>
+        <span>abre a beta</span>
       </div>
-
-      <div class="hero-media">
-        <img
-          class="hero-photo"
-          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&h=1100&fit=crop"
-          alt="Profissional a aprender"
-        />
-        <div class="hero-quote">
-          <p>Aprendi mais em 2 semanas com a Forja do que em 6 meses de cursos genéricos.</p>
-          <div class="author"><strong>Ana Paula</strong> — Consultora SAP</div>
-        </div>
+      <div class="hero-meta-divider"></div>
+      <div class="hero-meta-item">
+        <span class="num">200</span>
+        <span>primeiros · 50% off</span>
       </div>
     </div>
   </div>
 </section>
 
+<div class="ornament-rule">❦</div>
 
-<!-- ============ HOW IT WORKS ============ -->
-<section class="section" id="como-funciona">
+<!-- ============ HOW IT WORKS (movido para cima) ============ -->
+<section id="como-funciona" class="how-section">
   <div class="wrap">
-    <div class="eyebrow">Como funciona</div>
-    <h2 class="section-title display">Simples, prático e feito para a vida real.</h2>
-
+    <div class="section-head">
+      <div class="section-num">— Como funciona</div>
+      <h2>Três passos.<br/><em>Zero perda</em> de tempo.</h2>
+      <p class="section-lede">Diz à Forja o que precisas de aprender e em quanto tempo. O resto faz-se sozinho &mdash; até à parte em que tens mesmo de trabalhar.</p>
+    </div>
     <div class="steps">
       <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-icon">
-          <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.4">
-            <circle cx="30" cy="30" r="22"/>
-            <path d="M30 12v6M30 42v6M12 30h6M42 30h6"/>
-            <path d="M30 30 L 38 22 L 33 33 Z" fill="currentColor" opacity="0.85" stroke="none"/>
-            <circle cx="30" cy="30" r="2.5" fill="currentColor"/>
-          </svg>
-        </div>
-        <h4>Diz o que precisas aprender</h4>
-        <p>Conta-nos o teu objectivo e o contexto do teu trabalho.</p>
-        <div class="step-arrow">
-          <svg viewBox="0 0 30 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 7 Q 10 1, 18 7 T 27 7" stroke-dasharray="2 3"/>
-            <path d="M22 3 L 27 7 L 22 11"/>
-          </svg>
-        </div>
+        <div class="step-number">i.</div>
+        <h4>Descreves o teu objectivo</h4>
+        <p>"Quero aprender a automatizar relatórios SAP com Python em 4 semanas, 1 hora por dia." É só isto. Sem questionários intermináveis.</p>
       </div>
-
       <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-icon">
-          <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.4">
-            <rect x="14" y="10" width="32" height="42" rx="2"/>
-            <rect x="22" y="6" width="16" height="8" rx="1.5" fill="var(--paper)"/>
-            <path d="M20 24h20M20 30h20M20 36h14M20 42h16"/>
-            <circle cx="44" cy="44" r="6" fill="var(--cta)" opacity="0.18" stroke="none"/>
-            <path d="M41 44 L 43 46 L 47 42" stroke="var(--cta)" stroke-width="1.6"/>
-          </svg>
-        </div>
-        <h4>Recebes o teu plano personalizado</h4>
-        <p>A Forja cria um plano com módulos, aulas e projectos focados no que precisas.</p>
-        <div class="step-arrow">
-          <svg viewBox="0 0 30 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 7 Q 10 1, 18 7 T 27 7" stroke-dasharray="2 3"/>
-            <path d="M22 3 L 27 7 L 22 11"/>
-          </svg>
-        </div>
+        <div class="step-number">ii.</div>
+        <h4>A Forja gera o curso</h4>
+        <p>Em segundos: módulos, aulas curtas, exercícios aplicados e um projecto real para entregares no fim. Adaptado ao teu tempo e nível.</p>
       </div>
-
       <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-icon">
-          <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.4">
-            <circle cx="30" cy="30" r="20" fill="var(--ink)" stroke="none"/>
-            <circle cx="22" cy="29" r="2" fill="var(--bg)"/>
-            <circle cx="30" cy="29" r="2" fill="var(--bg)"/>
-            <circle cx="38" cy="29" r="2" fill="var(--bg)"/>
-            <path d="M38 46 L 42 50 L 42 44 Z" fill="var(--ink)"/>
-          </svg>
-        </div>
-        <h4>Aprende com acompanhamento</h4>
-        <p>Tens um mentor virtual a guiar-te, dúvidas a membros — no caminho certo.</p>
-        <div class="step-arrow">
-          <svg viewBox="0 0 30 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 7 Q 10 1, 18 7 T 27 7" stroke-dasharray="2 3"/>
-            <path d="M22 3 L 27 7 L 22 11"/>
-          </svg>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-icon">
-          <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.4">
-            <path d="M30 8 C 38 18, 42 26, 38 38 L 22 38 C 18 26, 22 18, 30 8 Z"/>
-            <circle cx="30" cy="22" r="3" fill="var(--cta)" stroke="none"/>
-            <path d="M22 38 L 18 46 M 38 38 L 42 46 M 30 40 L 30 48"/>
-            <path d="M16 50 Q 30 56, 44 50" stroke-dasharray="2 3"/>
-          </svg>
-        </div>
-        <h4>Aplica. Melhora. Evolui.</h4>
-        <p>Pratica com projectos reais e vê o resultado no teu trabalho.</p>
-      </div>
-    </div>
-
-    <div class="steps-cta">
-      <a href="#waitlist" class="btn btn-primary">Quero começar agora</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ WHY ============ -->
-<section class="section bordered" id="porque-funciona">
-  <div class="wrap">
-    <div class="why-grid">
-      <div class="why-text">
-        <div class="eyebrow left">Porque funciona</div>
-        <h2>Aprendizagem que se adapta a ti, não o contrário.</h2>
-        <p class="why-lede">
-          Com conteúdo relevante, projectos práticos e acompanhamento constante, tu aprendes mais, aplicas melhor e chegas mais longe.
-        </p>
-        <ul class="why-list">
-          <li>
-            <span class="why-check">✓</span>
-            <div>
-              <strong>Feito para o teu contexto</strong>
-              <span>Cada plano adaptado com o que tens de fazer no teu trabalho.</span>
-            </div>
-          </li>
-          <li>
-            <span class="why-check">✓</span>
-            <div>
-              <strong>Foco no que importa</strong>
-              <span>Só o que te aproxima do resultado que procuras.</span>
-            </div>
-          </li>
-          <li>
-            <span class="why-check">✓</span>
-            <div>
-              <strong>Ritmo flexível</strong>
-              <span>Aprende ao teu ritmo, com planos que se ajustam ao teu tempo.</span>
-            </div>
-          </li>
-          <li>
-            <span class="why-check">✓</span>
-            <div>
-              <strong>Pessoas que falam por ti</strong>
-              <span>Mais confiança, mais competências, mais impacto.</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <img class="why-photo" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&h=1100&fit=crop" alt="Profissional a aprender em casa" />
-
-      <div class="post-it">
-        <div class="quote-mark italic-serif">"</div>
-        <p>Aprender não é memorizar. É transformar o que sabes em resultado.</p>
+        <div class="step-number">iii.</div>
+        <h4>O Mentor cobra-te</h4>
+        <p>Não desapareces. Se faltas três dias, recebes uma mensagem. Se erras um exercício, ele pergunta o porquê antes de dar a resposta.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ STORIES ============ -->
-<section class="section" id="historias">
+<!-- ============ EXEMPLO REAL DO PRODUTO ============ -->
+<section class="exemplo-section" id="exemplo">
   <div class="wrap">
-    <h2 class="section-title display">Histórias reais, resultados reais.</h2>
-
-    <div class="stories-grid">
-      <div class="story">
-        <div class="qm">"</div>
-        <p>Consegui automatizar processos no meu trabalho e poupar horas todas as semanas. A Forja mudou a minha forma de aprender.</p>
-        <div class="story-author">
-          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=faces" alt="" />
-          <div>
-            <div class="name">Ana Paula</div>
-            <div class="role">Consultora SAP</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="story">
-        <div class="qm">"</div>
-        <p>O acompanhamento faz toda a diferença. Não é só conteúdo, é alguém a explicar-te quando ficas preso.</p>
-        <div class="story-author">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces" alt="" />
-          <div>
-            <div class="name">Miguel Santos</div>
-            <div class="role">Analista de Dados</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="story">
-        <div class="qm">"</div>
-        <p>Já fiz muitos cursos. Este foi o único que me levou até ao fim e trouxe resultados práticos.</p>
-        <div class="story-author">
-          <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&h=100&fit=crop&crop=faces" alt="" />
-          <div>
-            <div class="name">Bruno Almeida</div>
-            <div class="role">Coordenador de TI</div>
-          </div>
-        </div>
-      </div>
+    <div class="section-head">
+      <div class="section-num">— Exemplo real</div>
+      <h2>Vê um curso <em>gerado em 7 segundos.</em></h2>
+      <p class="section-lede">Este é o output verdadeiro do nosso Course Generator. Sem edição. Sem retoque. O que entras, sai.</p>
     </div>
 
-    <div class="stories-dots">
-      <span class="active"></span>
-      <span></span>
-      <span></span>
+    <div class="demo-grid">
+      <!-- INPUT -->
+      <div class="demo-input">
+        <div class="demo-input-label">Objectivo</div>
+        <div class="demo-input-text">Automatizar relatórios SAP com Python para gerar Excel mensais</div>
+
+        <div class="demo-input-label">Nível</div>
+        <div class="demo-tags">
+          <span class="demo-tag">Iniciante</span>
+          <span class="demo-tag active">Intermediário</span>
+          <span class="demo-tag">Avançado</span>
+        </div>
+
+        <div class="demo-input-label" style="margin-top: 18px;">Tempo por dia</div>
+        <div class="demo-tags">
+          <span class="demo-tag">15 min</span>
+          <span class="demo-tag">30 min</span>
+          <span class="demo-tag active">1 hora</span>
+        </div>
+
+        <div class="demo-input-label" style="margin-top: 18px;">Duração</div>
+        <div class="demo-tags">
+          <span class="demo-tag">2 semanas</span>
+          <span class="demo-tag active">4 semanas</span>
+          <span class="demo-tag">8 semanas</span>
+        </div>
+      </div>
+
+      <!-- OUTPUT -->
+      <div class="demo-output">
+        <div class="demo-course-title">Automação de Relatórios SAP com Python</div>
+        <div class="demo-course-meta">28 horas &middot; 4 semanas &middot; 3 módulos &middot; 1 projecto final</div>
+
+        <div class="demo-modulo">
+          <div class="demo-modulo-num">Módulo I</div>
+          <div class="demo-modulo-titulo">Conectar Python ao SAP</div>
+          <ul class="demo-aulas">
+            <li>PyRFC: setup, autenticação e primeira chamada</li>
+            <li>Ler tabelas MARA e MAKT em DataFrames pandas</li>
+            <li>Tratar erros de conexão e reconectar automaticamente</li>
+          </ul>
+          <div class="demo-projeto">
+            <strong>Projecto do módulo</strong>
+            Extrair stock de 3 plantas e exportar para Excel formatado.
+          </div>
+        </div>
+
+        <div class="demo-modulo">
+          <div class="demo-modulo-num">Módulo II</div>
+          <div class="demo-modulo-titulo">Transformar e validar dados</div>
+          <ul class="demo-aulas">
+            <li>Pipelines pandas: limpeza, agregação, joins</li>
+            <li>Validação com Pydantic: garantir dados consistentes</li>
+            <li>Logs estruturados para debugging em produção</li>
+          </ul>
+          <div class="demo-projeto">
+            <strong>Projecto do módulo</strong>
+            Pipeline de validação de notas fiscais com alertas automáticos.
+          </div>
+        </div>
+
+        <div class="demo-modulo">
+          <div class="demo-modulo-num">Módulo III</div>
+          <div class="demo-modulo-titulo">Automatizar e agendar</div>
+          <ul class="demo-aulas">
+            <li>Geração de Excel com openpyxl: formatação corporativa</li>
+            <li>Envio automático por email com anexo</li>
+            <li>Agendamento via cron / Task Scheduler</li>
+          </ul>
+          <div class="demo-projeto">
+            <strong>Projecto final</strong>
+            Sistema completo de relatórios mensais executado automaticamente no dia 1 de cada mês.
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PRICING ============ -->
-<section class="section bordered" id="precos">
+<!-- ============ PILLARS / PRINCÍPIOS (movido para baixo) ============ -->
+<section id="principios">
   <div class="wrap">
-    <div class="eyebrow">Preços</div>
-    <h2 class="section-title display">Investe no que <em>fica contigo</em>.</h2>
-    <p class="section-lede">Escolhe o plano que faz sentido para ti — ou para a tua equipa.</p>
-
-    <div class="pricing-grid">
-      <div class="price">
-        <div class="price-name">Explorador</div>
-        <div class="price-tag">
-          <span class="num">0€</span>
-        </div>
-        <div class="price-desc">Para experimentares antes de decidires.</div>
-        <ul>
-          <li>1 plano de aprendizagem</li>
-          <li>3 aulas por semana</li>
-          <li>Acompanhamento básico</li>
-        </ul>
-        <a href="#waitlist" class="btn btn-ghost price-btn">Começar grátis</a>
+    <div class="section-head">
+      <div class="section-num">— Princípios</div>
+      <h2>Aprender é uma <em>prática</em>,<br/>não um consumo.</h2>
+      <p class="section-lede">Cursos genéricos servem para muitos. A Forja serve para ti. Construímos o sistema que falta entre comprar um curso e usar o que aprendeste no trabalho.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">Capítulo I</div>
+        <h3>Personalização <em>real</em></h3>
+        <p>Descreves o objectivo. A IA desenha módulos, aulas, exercícios e um projecto final &mdash; adaptados ao teu nível e ao tempo que tens disponível.</p>
       </div>
-
-      <div class="price featured">
-        <div class="price-badge">Mais escolhido</div>
-        <div class="price-name">Forjador</div>
-        <div class="price-tag">
-          <span class="currency">€</span><span class="num">12</span><span class="period">/mês</span>
-        </div>
-        <div class="price-desc">Para quem aprende a sério, todos os dias.</div>
-        <ul>
-          <li>Planos ilimitados</li>
-          <li>Acompanhamento sem limites</li>
-          <li>Projectos com feedback detalhado</li>
-          <li>Exportação em PDF e Notion</li>
-        </ul>
-        <a href="#waitlist" class="btn btn-primary price-btn">Reservar o meu lugar</a>
+      <div class="pillar">
+        <div class="pillar-num">Capítulo II</div>
+        <h3>Mentor que <em>cobra</em></h3>
+        <p>Faz perguntas em vez de dar respostas. Identifica os teus pontos fracos. Contacta-te quando faltas. Não te deixa desistir em silêncio.</p>
       </div>
-
-      <div class="price">
-        <div class="price-name">Equipa</div>
-        <div class="price-tag">
-          <span class="currency">€</span><span class="num">9</span><span class="period">/utilizador</span>
-        </div>
-        <div class="price-desc">A partir de 5 utilizadores.</div>
-        <ul>
-          <li>Tudo do Forjador</li>
-          <li>Dashboard de gestor</li>
-          <li>Relatórios de progresso</li>
-          <li>Onboarding dedicado</li>
-        </ul>
-        <a href="#contact" class="btn btn-ghost price-btn">Falar connosco</a>
+      <div class="pillar">
+        <div class="pillar-num">Capítulo III</div>
+        <h3>Prática <em>aplicada</em></h3>
+        <p>Cada módulo termina num exercício real, conectado ao teu trabalho. Acabas o curso com um projecto entregue &mdash; não com um certificado vazio.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOR WHOM ============ -->
+<section id="para-quem">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">— Para quem é</div>
+      <h2>Para quem usa <em>tempo</em><br/>como moeda.</h2>
+      <p class="section-lede">A Forja foi desenhada para profissionais que precisam de competência específica, não de mais conteúdo genérico.</p>
+    </div>
+    <div class="for-list">
+      <div class="for-row">
+        <div class="for-num">i.</div>
+        <div class="for-title">Consultores SAP</div>
+        <div class="for-desc">Que precisam de adicionar automação, IA e Python ao stack &mdash; sem parar de facturar para fazer um bootcamp de 12 semanas.</div>
+      </div>
+      <div class="for-row">
+        <div class="for-num">ii.</div>
+        <div class="for-title">Programadores em transição</div>
+        <div class="for-desc">Que querem entrar em IA aplicada com projectos reais, não com mais tutoriais sobre como construir um chatbot do zero.</div>
+      </div>
+      <div class="for-row">
+        <div class="for-num">iii.</div>
+        <div class="for-title">Profissionais não-técnicos</div>
+        <div class="for-desc">Gestores, analistas, profissionais de finanças que querem automatizar tarefas repetitivas com IA &mdash; sem se tornarem engenheiros.</div>
+      </div>
+      <div class="for-row">
+        <div class="for-num">iv.</div>
+        <div class="for-title">Equipas pequenas</div>
+        <div class="for-desc">Empresas que precisam de formar 5 a 50 colaboradores em ferramentas específicas, com tracking real e ROI mensurável.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="how-section" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">— Perguntas</div>
+      <h2>O que me <em>vais</em> perguntar.</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Como é diferente de usar o ChatGPT directamente?</summary>
+        <p>O ChatGPT é uma conversa. A Forja é um sistema. Gera estrutura (módulos, aulas, projectos), mantém estado (sabe onde estás, o que erraste, o que dominaste), e cobra-te por terminar. Podes usar o ChatGPT para tudo isto &mdash; mas vais ter de o desenhar tu, todos os dias, para cada tópico.</p>
+      </details>
+      <details class="faq-item">
+        <summary>O conteúdo gerado é confiável?</summary>
+        <p>A geração é a parte fácil. A diferença está na curadoria: usamos modelos especializados, validação de schema, e revisão humana das áreas onde há mais risco de imprecisão. Mostramos sempre as fontes.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Em que línguas funciona?</summary>
+        <p>Beta abre em português (PT e BR). Inglês e espanhol no Q4 de 2026.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Quando abre a beta?</summary>
+        <p>Julho de 2026. Os primeiros 200 inscritos na waitlist têm acesso gratuito durante 30 dias e desconto de 50% vitalício no plano Pro.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Posso cancelar quando quiser?</summary>
+        <p>Sim, sem perguntas. O Pro é mês-a-mês. Se cancelares, manténs acesso ao conteúdo gerado em modo leitura.</p>
+      </details>
     </div>
   </div>
 </section>
 
 <!-- ============ FINAL CTA ============ -->
-<section class="section" id="waitlist" style="padding-top: 0; padding-bottom: 0;">
+<section class="final" id="waitlist">
   <div class="wrap">
-    <div class="final">
-      <div class="final-grid">
-        <div class="final-left">
-          <h2>Pronto para transformar a tua <em>aprendizagem?</em></h2>
-          <p>Junta-te a milhares de profissionais que estão a crescer com a Forja.</p>
-          <form class="waitlist-form" id="waitlist-form">
-            <input type="email" id="waitlist-email" placeholder="O teu melhor email" required autocomplete="email" />
-            <button type="submit" id="waitlist-btn">Quero entrar na lista</button>
-          </form>
-          <div class="waitlist-status" id="waitlist-status">
-            Beta privada · Os primeiros 200 inscritos pagam metade vitalício
-          </div>
-          <div class="final-bullets" style="margin-top: 16px;">
-            <span>Sem spam</span>
-            <span>Cancela quando quiseres</span>
-            <span>Acesso antecipado</span>
-          </div>
-        </div>
-        <div class="final-right">
-          <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=900&h=700&fit=crop" alt="Livro aberto numa secretária com luz quente" />
-        </div>
-      </div>
-    </div>
+    <div class="section-num">— Beta privada</div>
+    <h2>Sê dos primeiros<br/>a <em>forjar.</em></h2>
+    <p>Beta abre em Julho. Os primeiros 200 inscritos pagam metade do preço, vitalício. Sem spam &mdash; um email quando abrir, e mais nada.</p>
+    <form class="form" id="waitlist-form" onsubmit="event.preventDefault();">
+      <input type="email" id="waitlist-email" placeholder="o-teu-email@trabalho.com" required autocomplete="email" />
+      <button type="submit">Quero acesso →</button>
+    </form>
+    <div class="form-microcopy" id="waitlist-microcopy">Sem spam &middot; Leva 10 segundos &middot; Cancelas quando quiseres</div>
+    <div class="final-meta" id="waitlist-status">Beta abre em Julho 2026 &middot; 200 lugares com 50% off vitalício</div>
   </div>
 </section>
 
 <!-- ============ FOOTER ============ -->
 <footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="#" class="logo">
-          <span class="logo-mark">F</span>
-          <span>Forja</span>
-        </a>
-        <p>Aprendizagem personalizada para o mundo do trabalho.</p>
-      </div>
-      <div class="footer-col">
-        <h5>Produto</h5>
-        <ul>
-          <li><a href="#como-funciona">Como funciona</a></li>
-          <li><a href="#precos">Preços</a></li>
-          <li><a href="#porque-funciona">Recursos</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Empresa</h5>
-        <ul>
-          <li><a href="#">Sobre nós</a></li>
-          <li><a href="#">Carreiras</a></li>
-          <li><a href="#">Contacto</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Recursos</h5>
-        <ul>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Guias</a></li>
-          <li><a href="#">Perguntas frequentes</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Segue-nos</h5>
-        <div class="footer-social">
-          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h4v16H4zM6 2a2 2 0 110 4 2 2 0 010-4zM10 9h4v2c.6-1.2 2-2.3 4-2.3 4 0 5 2.4 5 5.6V20h-4v-5c0-1.6-.6-2.8-2.2-2.8-1.6 0-2.8 1.2-2.8 2.8v5h-4z"/></svg></a>
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 7.5c-.2-1.5-.8-2-2-2.2C18 5 12 5 12 5s-6 0-8 .3c-1.2.2-1.8.7-2 2.2C2 9 2 12 2 12s0 3 .2 4.5c.2 1.5.8 2 2 2.2C6 19 12 19 12 19s6 0 8-.3c1.2-.2 1.8-.7 2-2.2.2-1.5.2-4.5.2-4.5s0-3-.2-4.5zM10 15V9l5 3-5 3z"/></svg></a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div>© 2026 Forja. Todos os direitos reservados.</div>
-      <div class="links">
-        <a href="#">Termos de utilização</a>
-        <a href="#">Política de privacidade</a>
-      </div>
+  <div class="wrap footer-i">
+    <span>© 2026 Forja</span>
+    <div>
+      <a href="#">LinkedIn</a>
+      <a href="mailto:contacto@forjaai.app">contacto@forjaai.app</a>
     </div>
   </div>
 </footer>
 
+<!-- ============ SUPABASE INTEGRATION ============ -->
 <script>
-  // sticky nav border on scroll
-  const topbar = document.getElementById('topbar');
-  window.addEventListener('scroll', () => {
-    topbar.classList.toggle('scrolled', window.scrollY > 8);
-  });
-
-  // === Supabase waitlist ===
+  // Substitui pelos teus valores reais
   const SUPABASE_URL = "https://vdtnplkebhwbbbdequoe.supabase.co";
   const SUPABASE_ANON_KEY = "sb_publishable_AkAhMJEIPluktLTzKSAiBw_FiIMAy6u";
 
-  const form = document.getElementById('waitlist-form');
-  const emailInput = document.getElementById('waitlist-email');
-  const btn = document.getElementById('waitlist-btn');
-  const statusEl = document.getElementById('waitlist-status');
+  const form = document.getElementById("waitlist-form");
+  const emailInput = document.getElementById("waitlist-email");
+  const status = document.getElementById("waitlist-status");
+  const btn = form.querySelector("button");
 
-  fetch(`${SUPABASE_URL}/rest/v1/waitlist_count`, {
-    headers: {
-      apikey: SUPABASE_ANON_KEY,
-      Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-    },
-  })
-    .then((r) => r.json())
-    .then((data) => {
-      const total = data[0]?.total ?? 0;
-      document.querySelectorAll('.hero-meta span').forEach((el) => {
-        if (el.textContent.includes('PESSOAS')) {
-          el.textContent = `${total} PESSOAS NA WAITLIST`;
-        }
-      });
-      const finalMeta = document.querySelector('.final-meta');
-      if (finalMeta) {
-        finalMeta.textContent = `${total} INSCRITOS · BETA EM JULHO`;
-      }
-    })
-    .catch(() => {});
-
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const email = emailInput.value.trim().toLowerCase();
     if (!email) return;
 
     btn.disabled = true;
-    btn.textContent = 'A reservar…';
+    btn.textContent = "A reservar…";
 
     try {
       const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/subscribe_waitlist`, {
@@ -1540,28 +1155,27 @@
 
       if (data.ok && !data.duplicate) {
         form.style.display = "none";
-        statusEl.innerHTML = "✓ <strong style='color:#fff'>Estás dentro.</strong> Vais receber email quando a beta abrir.";
+        status.innerHTML = "✓ Estás dentro. Vais receber um email quando a beta abrir.";
+        status.style.color = "rgba(255,255,255,0.85)";
       } else if (data.ok && data.duplicate) {
         form.style.display = "none";
-        statusEl.innerHTML = "✓ <strong style='color:#fff'>Já estavas inscrito.</strong> Vemo-nos no lançamento.";
+        status.innerHTML = "✓ Já estavas inscrito. Vemo-nos no lançamento.";
+        status.style.color = "rgba(255,255,255,0.85)";
       } else if (data.error === "rate_limit") {
-        statusEl.innerHTML = "Demasiadas tentativas. Tenta de novo daqui a uma hora.";
+        status.innerHTML = "Demasiadas tentativas. Tenta de novo daqui a uma hora.";
         btn.disabled = false;
-        btn.textContent = "Quero entrar na lista";
+        btn.textContent = "Reservar →";
       } else if (data.error === "invalid_email") {
-        statusEl.innerHTML = "Email inválido. Verifica e tenta de novo.";
+        status.innerHTML = "Email inválido. Verifica e tenta de novo.";
         btn.disabled = false;
-        btn.textContent = "Quero entrar na lista";
+        btn.textContent = "Reservar →";
       } else {
-        statusEl.innerHTML = "Algo correu mal. Tenta de novo daqui a uns segundos.";
-        btn.disabled = false;
-        btn.textContent = "Quero entrar na lista";
+        throw new Error(data.error || "unknown");
       }
     } catch (err) {
       btn.disabled = false;
-      btn.textContent = 'Quero entrar na lista';
-      statusEl.textContent = 'Algo correu mal. Tenta de novo daqui a uns segundos.';
-      statusEl.style.color = 'var(--cta)';
+      btn.textContent = "Reservar →";
+      status.innerHTML = "Algo correu mal. Tenta de novo daqui a uns segundos.";
       console.error(err);
     }
   });
